@@ -7,7 +7,7 @@ import Main from './Main';
 import Navigation from './Navigation';
 import Tours from './Tours';
 import TransparentContent from './TransparentContent';
-import {Link,Element,Events,scroll,scrollSpy}  from 'react-scroll';
+import {Element}  from 'react-scroll';
 
 class App extends Component {
     constructor(){
