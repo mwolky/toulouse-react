@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
-import {StyleSheet,css} from 'aphrodite';
+import { Grid, Row, Col } from 'react-bootstrap';
+import { StyleSheet, css } from 'aphrodite';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css'
 
 class Tour extends Component {
     render(){
@@ -10,8 +12,6 @@ class Tour extends Component {
             autoplay: true,
             autoplaySpeed: 3000,
             cssEase: 'ease-out',
-            centerMode: true,
-            centerPadding: '100px',
             slidesToShow: 1,
             speed: 300
 
@@ -25,6 +25,7 @@ class Tour extends Component {
             if(tour.acf.photo3) photos.push(tour.acf.photo3.url)
             if(tour.acf.photo4) photos.push(tour.acf.photo4.url)
             if(tour.acf.photo5) photos.push(tour.acf.photo5.url)
+
         }
 
         let slider = <div/>;
@@ -35,9 +36,9 @@ class Tour extends Component {
                 );
             });
         }
-        const order = this.props.order == 1 ? 0 : 6;
-        const align = this.props.order == 1 ? {textAlign: 'right'} : null;
-        console.log(order);
+        const order = this.props.order === 1 ? 0 : 6;
+        const align = this.props.order === 1 ? {textAlign: 'right'} : null;
+
         return (
            <div className={css(s.slider)}>
                 <Grid>
@@ -51,10 +52,11 @@ class Tour extends Component {
                             <h3>{tour.title.rendered}</h3>
                             <div dangerouslySetInnerHTML={{__html: tour.content.rendered}}></div>
                             <div className={css(s.button)}  style={align}>
-                                <a href="" className={css(s.link)}>See more ></a>
+                                <Link to={`/trip/${tour.slug}`} className={css(s.link)}>See more ></Link>
                             </div>
                         </Col>
                     </Row>
+
                 </Grid>
             </div>
         )

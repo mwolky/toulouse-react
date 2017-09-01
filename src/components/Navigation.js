@@ -3,7 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import {StyleSheet,css} from 'aphrodite';
 import m from '../styles/media';
 import Logo from './Logo';
-import {Link,Element,Events,scroll,scrollSpy}  from 'react-scroll';
+import {Link}  from 'react-scroll';
 
 class Navigation extends Component {
     constructor(){
@@ -13,16 +13,6 @@ class Navigation extends Component {
         };
         this.handleButton = this.handleButton.bind(this);
         this.handleLink = this.handleLink.bind(this);
-    }
-    componentDidMount(){
-        const home = this.home;
-        const about = this.about;
-        const tours = this.tours;
-        const contact = this.contact;
-        const underline = this.underline;
-    }
-    handleSetActive(){
-        // console.log('test')
     }
     handleButton(){
         this.setState({

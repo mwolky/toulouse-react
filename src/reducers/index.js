@@ -1,21 +1,12 @@
-import { GET_DATA } from '../constants';
+import { combineReducers } from 'redux';
+import tours from './tourReducer';
+import pages from './pageReducer';
+import scrolled from './scrollReducer';
 
-const data = (action) => {
-    return {
-        data: action.data
-    }
-};
+const reducer = combineReducers({
+    tours,
+    pages,
+    scrolled
+});
 
-const datas = (state = [], action) => {
-  let datas = null;
-  switch(action.type){
-      case GET_DATA:
-          datas = [...state, data(action)];
-          console.log('datas as state', datas);
-          return datas;
-      default:
-          return state;
-  }
-};
-
-export default datas;
+export default reducer;
