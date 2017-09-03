@@ -3,3 +3,9 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+/*.image-gallery-slide img {*/
+  /*width: auto !important;*/
+  /*height: 500px !important;*/
+  /*display: block !important;*/
+  /*margin: auto !important;*/
+/*}*/

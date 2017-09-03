@@ -1,8 +1,10 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {StyleSheet,css} from 'aphrodite';
+import { Link } from 'react-scroll';
 import m from '../styles/media';
 import Logo from './Logo';
+
 const Footer = (props) => {
     return (
         <div className={css(s.container)}>
@@ -20,22 +22,44 @@ const Footer = (props) => {
                                     </p>
                                 </div>
                             </div>
+                            { !props.hideNav &&
                             <div className={css(s.nav)}>
                                 <div className={css(s.menu)}>
-                                    <a className={css(s.item)} href="#home">
+                                    <Link className={css(s.item)}
+                                          delay={0} to="home"
+                                          spy={true}
+                                          smooth={'easeInOutCubic'}
+                                          offset={-55}
+                                          duration={500}>
                                         Home
-                                    </a>
-                                    <a className={css(s.item)} href="#about">
+                                    </Link>
+                                    <Link className={css(s.item)}
+                                          delay={0} to="about"
+                                          spy={true}
+                                          smooth={'easeInOutCubic'}
+                                          offset={0}
+                                          duration={500}>
                                         About
-                                    </a>
-                                    <a className={css(s.item)} href="#tours">
+                                    </Link>
+                                    <Link className={css(s.item)}
+                                          delay={0} to="tours"
+                                          spy={true}
+                                          smooth={'easeInOutCubic'}
+                                          offset={-55}
+                                          duration={500}>
                                         Tours
-                                    </a>
-                                    <a className={css(s.item)} href="#contact">
+                                    </Link>
+                                    <Link className={css(s.item)}
+                                          delay={0} to="contact"
+                                          spy={true}
+                                          smooth={'easeInOutCubic'}
+                                          offset={-150}
+                                          duration={500}>
                                         Contact
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
+                            }
                         </div>
                     </Col>
                 </Row>

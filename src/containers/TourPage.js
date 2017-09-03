@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {StyleSheet,css} from 'aphrodite';
 import { connect } from 'react-redux';
-import Heading from './Heading';
-import Section from './Section';
-import TourList from './TourList';
+import m from '../styles/media';
+import Heading from '../components/Heading';
+import Section from '../components/Section';
+import TourList from '../components/TourList';
 
 class TourPage extends Component {
     render(){
@@ -14,7 +15,7 @@ class TourPage extends Component {
                     <Row>
                         <Col xs={12}>
                             <Section>
-                                <div>
+                                <div className={css(s.margin)}>
                                     <Heading>
                                         Tours
                                     </Heading>
@@ -32,13 +33,14 @@ class TourPage extends Component {
 const s = StyleSheet.create({
     container: {
         backgroundColor: 'rgb(241,241,241)'
+    },
+    margin: {
+        marginBottom: -40,
     }
 });
 
-function mapStateToProps(state, ownProps) {
-    return {
-        tours: state.tours
-    };
-}
+const mapStateToProps = state => ({
+    tours: state.tours
+});
 
 export default connect(mapStateToProps)(TourPage);

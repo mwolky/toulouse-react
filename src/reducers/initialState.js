@@ -1,5 +1,5 @@
 export default {
     tours: [],
     pages: [],
-    pageScrolled: false
+    isPageScrolled: false
 }

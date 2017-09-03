@@ -3,7 +3,8 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import {StyleSheet,css} from 'aphrodite';
 import m from '../styles/media';
 import Logo from './Logo';
-import {Link}  from 'react-scroll';
+import { Link, scrollSpy }  from 'react-scroll';
+
 
 class Navigation extends Component {
     constructor(){
@@ -23,6 +24,9 @@ class Navigation extends Component {
         this.setState({
             menuOpened: !this.state.menuOpened
         });
+    }
+    componentDidMount() {
+        scrollSpy.update()
     }
     render(){
         const color = this.props.scrolled ? s.colorScrolled : s.color;
@@ -47,16 +51,47 @@ class Navigation extends Component {
                                 <div className={css(s.menu, menu)}>
                                     <div className={css(s.list)}>
                                         <div className={css(s.items)}>
-                                            <Link className={css(s.link)} onClick={this.handleLink} activeClass={css(s.linkActive)} delay={0} to="home" spy={true} smooth={'easeInOutCubic'} offset={-50} duration={500}>
+                                            <Link className={css(s.link)}
+                                                  onClick={this.handleLink}
+                                                  activeClass={css(s.linkActive)}
+                                                  delay={0} to="home"
+                                                  spy={true}
+                                                  smooth={'easeInOutCubic'}
+                                                  offset={0}
+                                                  isDynamic={true}
+                                                  duration={500}>
                                                 Home
                                             </Link>
-                                            <Link className={css(s.link)} onClick={this.handleLink} activeClass={css(s.linkActive)} delay={0} to="about" spy={true} smooth={'easeInOutCubic'} offset={-50} duration={500}>
+                                            <Link className={css(s.link)}
+                                                  onClick={this.handleLink}
+                                                  activeClass={css(s.linkActive)}
+                                                  delay={0} to="about"
+                                                  spy={true}
+                                                  smooth={'easeInOutCubic'}
+                                                  offset={-50}
+                                                  isDynamic={true}
+                                                  duration={500}>
                                                 About
                                             </Link>
-                                            <Link className={css(s.link)} onClick={this.handleLink} activeClass={css(s.linkActive)} delay={0} to="tours" spy={true} smooth={'easeInOutCubic'} offset={-50} duration={500}>
+                                            <Link className={css(s.link)}
+                                                  onClick={this.handleLink}
+                                                  activeClass={css(s.linkActive)}
+                                                  delay={0} to="tours"
+                                                  spy={true}
+                                                  smooth={'easeInOutCubic'}
+                                                  offset={-50}
+                                                  isDynamic={true}
+                                                  duration={500}>
                                                 Tours
                                             </Link>
-                                            <Link className={css(s.link)} onClick={this.handleLink} activeClass={css(s.linkActive)} delay={0} to="contact" spy={true} smooth={'easeInOutCubic'} offset={-50} duration={500}>
+                                            <Link className={css(s.link)}
+                                                  onClick={this.handleLink}
+                                                  activeClass={css(s.linkActive)}
+                                                  delay={0} to="contact"
+                                                  spy={true} smooth={'easeInOutCubic'}
+                                                  offset={-150}
+                                                  isDynamic={true}
+                                                  duration={500}>
                                                 Contact
                                             </Link>
                                         </div>
@@ -165,13 +200,39 @@ const s = StyleSheet.create({
         padding: '10px 0',
         position: 'relative',
         ':link, :visited, :hover, :active': {
+            cursor: 'pointer',
             textDecoration: 'none'
         },
         [m.tablet]: {
-            padding: '5px 15px'
+            padding: '5px 15px',
+            ':hover': {
+                position: 'relative',
+                ':after': {
+                    background: 'rgb(171,39,79)',
+                    bottom: '0',
+                    content: '""',
+                    height: 2,
+                    left: 15,
+                    position: 'absolute',
+                    width: 'calc(100% - 30px)'
+                }
+            }
         }
     },
-    linkActive: {},
+    linkActive: {
+        [m.tablet]: {
+            position: 'relative',
+            ':after': {
+                background: 'rgb(171,39,79)',
+                bottom: '0',
+                content: '""',
+                height: 2,
+                left: 15,
+                position: 'absolute',
+                width: 'calc(100% - 30px)'
+            }
+        }
+    },
     list: {
         display: 'block',
         [m.tablet]: {

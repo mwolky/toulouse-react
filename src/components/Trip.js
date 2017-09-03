@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import {Grid, Row, Col} from 'react-bootstrap';
+import GoBack from './GoBack';
 import Details from './Details';
 
 class Trip extends Component {
@@ -31,19 +32,20 @@ class Trip extends Component {
         let photos = [];
         if(trips){
             trip = trips.filter((el,i)=>{
-                return el.slug === this.props.match.params.slug;
+                return el.slug === this.props.slug;
             });
         }
         if(trip.length>0){
-            if(trip[0].acf.photo1) photos.push(trip[0].acf.photo1.url)
-            if(trip[0].acf.photo2) photos.push(trip[0].acf.photo2.url)
-            if(trip[0].acf.photo3) photos.push(trip[0].acf.photo3.url)
-            if(trip[0].acf.photo4) photos.push(trip[0].acf.photo4.url)
-            if(trip[0].acf.photo5) photos.push(trip[0].acf.photo5.url)
+            if(trip[0].acf.photo1) photos.push(trip[0].acf.photo1.url);
+            if(trip[0].acf.photo2) photos.push(trip[0].acf.photo2.url);
+            if(trip[0].acf.photo3) photos.push(trip[0].acf.photo3.url);
+            if(trip[0].acf.photo4) photos.push(trip[0].acf.photo4.url);
+            if(trip[0].acf.photo5) photos.push(trip[0].acf.photo5.url);
 
         }
         return (
             <div className={css(s.default)}>
+                <GoBack/>
                 <Grid>
                     <Row>
                         <Col xs={12}>

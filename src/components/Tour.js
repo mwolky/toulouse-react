@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import m from '../styles/media';
 import 'slick-carousel/slick/slick.css'
 
 class Tour extends Component {
@@ -43,12 +44,12 @@ class Tour extends Component {
            <div className={css(s.slider)}>
                 <Grid>
                     <Row className={css(s.row)}>
-                        <Col xs={6} xsPush={order}>
+                        <Col xs={12} sm={6} smPush={order}>
                             <Slider {...sliderSettings}>
                                 {slider} 
                             </Slider>
                         </Col>
-                        <Col xs={6} xsPull={order} className={css(s.col)}>
+                        <Col xs={12}  sm={6} smPull={order} className={css(s.col)}>
                             <h3>{tour.title.rendered}</h3>
                             <div dangerouslySetInnerHTML={{__html: tour.content.rendered}}></div>
                             <div className={css(s.button)}  style={align}>
@@ -80,18 +81,26 @@ const s = StyleSheet.create({
         backgroundColor: 'rgb(171, 39, 79)',
         color: 'white',
         display: 'inline-block',
-        margin: '40px 0 0',
+        margin: '10px 0 30px',
         minWidth: 100,
-        padding: '10px 20px',
+        padding: '7px 15px',
         ':hover': {
             backgroundColor: 'rgba(171, 39, 79, .85)'
+        },
+        [m.tablet]: {
+            margin: '40px 0 0',
+            padding: '10px 20px',
         }
     },
     row: {
-        display: 'flex'
+        display: 'flex',
+        flexWrap: 'wrap'
     },
     slider: {
-        padding: '40px 0'
+        padding: 0,
+        [m.tablet]: {
+            padding: '40px 0',
+        }
     }
 });
 

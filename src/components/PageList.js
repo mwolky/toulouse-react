@@ -3,7 +3,7 @@ import {Element}  from 'react-scroll';
 import About from './About';
 import Contact from './Contact';
 import Home from './Home';
-import Tours from './TourPage';
+import TourPage from '../containers/TourPage';
 import TransparentContent from './TransparentContent';
 
 const PageList = ({pages}) => {
@@ -16,10 +16,11 @@ const PageList = ({pages}) => {
                 <About data={ pages.filter(page => page.slug === 'about') }/>
             </Element>
             <Element name="tours">
-                <Tours data={ pages.filter(page => page.slug === 'tours') }/>
-                <TransparentContent/>
+                <TourPage data={ pages.filter(page => page.slug === 'tours') }/>
+
             </Element>
-            <Element name="contact">
+            <TransparentContent/>
+            <Element name="contact" id="contact">
                 <Contact data={ pages.filter(page => page.slug === 'contact') }/>
             </Element>
         </div>

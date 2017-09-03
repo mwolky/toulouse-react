@@ -14,5 +14,5 @@ export function loadPages() {
 }
 
 export function loadPagesSuccess(pages) {
-    return { type: types.LOAD_PAGES_SUCCESS, pages, arePagesFetched: true }
+    return { type: types.LOAD_PAGES_SUCCESS, pages }
 }

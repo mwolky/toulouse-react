@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 import tours from './tourReducer';
 import pages from './pageReducer';
-import scrolled from './scrollReducer';
+import isPageScrolled from './scrollReducer';
 
 const reducer = combineReducers({
     tours,
     pages,
-    scrolled
+    isPageScrolled,
+    routing: routerReducer
 });
 
 export default reducer;
